@@ -1,13 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-export const Transaction = () => {
+export const Transaction = ({transaction}) => {
+   const sign = transaction.amount < 0 ? '-' : '+';
    return (
-      <div>
-         <ul  className="list">
-            <li className="minus">
-                Cash <span>-$400</span><button class="delete-btn">x</button>
-            </li>
-      </ul>
-      </div>
+      <li className={transaction.amount<0? 'minus' : 'plus' }>
+         {transaction.text}<span>{sign}${Math.abs(transaction.amount)}</span><button class="delete-btn">x</button>
+      </li>
    )
 }
